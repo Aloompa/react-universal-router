@@ -92,7 +92,7 @@ const Router = (props: any) => (
             setActiveTab={props.setActiveTab}
             bottomTab={true}
             viewHeightReduction={102}
-            tabButtons={props.tabs.map((tab) => tab.button)}
+            tabButtons={props.tabs && props.tabs.map((tab) => tab.button)}
             tabViews={props.tabRoutes.map(() => <ContentArea>
             {props.history.filter(route => {
                 const routeConfig = props.routes[route.route];
@@ -179,7 +179,7 @@ const initializeRoutes = (routes, tabs) => {
         let positionAnimation = (index ? new Animated.Value(negate(offset) || 0) : 0);
         if(routes[key].mode !== 'modal')
         {
-          const tabIndexInitial = tabs.length > 1 ? tabs.findIndex(tab => tab.initial === key) : 0;
+          const tabIndexInitial = tabs.length > 1 ? tabs.findIndex(tab => tab.initial === key) : index;
           positionAnimation = Array(tabs.length).fill(0).map((_, index) => index === tabIndexInitial ? 0 : new Animated.Value(negate(offset) || 0));
         }
 
@@ -251,7 +251,7 @@ const createRoutes = (config) => {
   });
 
   const tabs = defaultTo([{}], config.tabs);
-  
+
   return compose(
         withRouter,
         withProps({

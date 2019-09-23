@@ -24,7 +24,7 @@ export const {
 } = createActions({}, SET_ROUTE, NAVIGATE_COMPLETE, NAVIGATE_BACK, NAVIGATE_BACK_COMPLETE, SET_TITLE_CACHE, RESET_NAVIGATION, SET_NAVBAR_HIDDEN, SET_ACTIVE_TAB);
 
 const routerReducer = (config: {
-    activeTab: number,
+    activeTab?: number,
     initialTabRoutes?: string[],
     initialRoute: string,
     adapter?: {
@@ -36,10 +36,9 @@ const routerReducer = (config: {
     const initialRoute = {
         route: config.initialRoute
     };
-    
-    const historyState = (config.adapter) ? 
-        [initialRoute, ...config.adapter.getRoute(config.initialRoute)] :
-        [initialRoute];
+
+    const activeTab = config.activeTab || 0;
+    const tabRoutes = config.initialTabRoutes ? config.initialTabRoutes.map(route => [{route}]) : [[initialRoute]];
 
     const initialState = {
         navbarHidden: false,
@@ -47,9 +46,9 @@ const routerReducer = (config: {
         destinations: [],
         isNavigatingBack: false,
         titleCache: {},
-        history: historyState,
-        activeTab: config.activeTab,
-        tabRoutes: config.initialTabRoutes ? config.initialTabRoutes.map(route => [{route}]) : [[initialRoute]]
+        history: tabRoutes[activeTab],
+        activeTab,
+        tabRoutes
     };
 
     return handleActions({
