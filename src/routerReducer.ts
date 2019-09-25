@@ -73,7 +73,7 @@ const routerReducer = (config: {
                 isNavigating: true,
                 history,
                 destinations: [...state.destinations, payload],
-                tabRoutes: state.tabRoutes.map((route, index) => index === state.activeTab ? tabRoute : route )
+                tabRoutes: state.tabRoutes.map((route, index) => (index === state.activeTab) ? tabRoute : route )
             };
         },
 
@@ -100,7 +100,7 @@ const routerReducer = (config: {
         [RESET_NAVIGATION]: (state) => ({
             ...state,
             history: [state.history[0], last(state.history)],
-            tabRoutes: state.tabRoutes.map((route, index) => index === state.activeTab ? [route[0], last(route)] : route),
+            tabRoutes: state.tabRoutes.map((route, index) => (index === state.activeTab) ? [route[0], last(route)] : route),
             isNavigatingBack: true
         }),
 
