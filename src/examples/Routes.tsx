@@ -20,7 +20,7 @@ const Routes = createRoutes({
           iconHeight={18}
           iconWidth={20}
           iconSelectedColor={'#FF00FF'}
-          title={'Home'}
+          title={'Browse'}
           iconUrl={'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-browse.svg'} 
         />
         ,
@@ -31,10 +31,10 @@ const Routes = createRoutes({
           selected={isSelected}
           iconUnselectedColor={"#ccc"}
           iconHeight={18}
-          iconWidth={20}
+          iconWidth={22}
           iconSelectedColor={'#FF00FF'}
           title={'Home 2'}
-          iconUrl={'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-browse.svg'} 
+          iconUrl={'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-tickets.svg'} 
         />,
         initial: 'Page2'
       },
@@ -42,11 +42,11 @@ const Routes = createRoutes({
         button:  (isSelected: boolean) => <TabButton 
           selected={isSelected}
           iconUnselectedColor={"#ccc"}
-          iconHeight={18}
-          iconWidth={20}
+          iconHeight={22}
+          iconWidth={22}
           iconSelectedColor={'#FF00FF'}
           title={'Home 3'}
-          iconUrl={'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-browse.svg'} 
+          iconUrl={'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-account.svg'} 
         />,
         initial: 'Page3'
       }

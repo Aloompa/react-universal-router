@@ -11,15 +11,26 @@ const TabButton = (props: {
     title: string;
 }) => (
     <div style={{
-        flex: 1,
-        display: 'flex',
-    }}><SvgIcon 
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      position: 'absolute',
+      alignItems: 'center',
+      paddingTop: 8,
+      width: '100%'
+    }}>
+    <SvgIcon 
         color={props.selected ? props.iconSelectedColor : props.iconUnselectedColor}
         height={props.iconHeight}
         width={props.iconWidth}
         url={props.iconUrl}
     />
-    <span>{props.title}</span>
+    <span style={{
+      position: 'absolute',
+      fontFamily: 'Inter-Regular',
+      fontSize: 12,
+      lineHeight: 5,
+    }}>{props.title}</span>
     </div>
 );
 
