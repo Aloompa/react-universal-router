@@ -24,7 +24,9 @@ const TabRouter = (props: {
     >
       {props.tabButtons.map((button, index) => (
         <TouchableOpacity onPress={() => props.setActiveTab(index)}>
-          {button}
+          
+          {button(props.activeTabIndex === index)}
+
         </TouchableOpacity>
       ))}
     </View>

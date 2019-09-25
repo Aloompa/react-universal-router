@@ -8,35 +8,46 @@ import Page3 from './routes/Page3';
 import TopNav from './components/TopNav';
 import { always } from 'ramda';
 import { createRoutes } from '../index';
-import SvgIcon from '../components/SVGImage';
+// import SvgIcon from '../components/SVGImage';
+import TabButton from '../components/TabButton';
 
 const Routes = createRoutes({
     tabs: [
       {
-        button: <SvgIcon
-          color={"#550000"}
-          height={18}
-          width={20}
-          url={'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-browse.svg'} 
-        />,
+        button: (isSelected: boolean) => <TabButton 
+          selected={isSelected}
+          iconUnselectedColor={"#ccc"}
+          iconHeight={18}
+          iconWidth={20}
+          iconSelectedColor={'#FF00FF'}
+          title={'Home'}
+          iconUrl={'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-browse.svg'} 
+        />
+        ,
         initial: 'Home'
       },
       {
-        button: <SvgIcon
-          color={"#005500"}
-          height={18}
-          width={20}
-          url={'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-tickets.svg'} 
+        button: (isSelected: boolean) => <TabButton 
+          selected={isSelected}
+          iconUnselectedColor={"#ccc"}
+          iconHeight={18}
+          iconWidth={20}
+          iconSelectedColor={'#FF00FF'}
+          title={'Home 2'}
+          iconUrl={'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-browse.svg'} 
         />,
         initial: 'Page2'
       },
       {
-        button: <SvgIcon
-          color={"#000055"}
-          height={18}
-          width={20}
-          url={'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-account.svg'} 
-          />,
+        button:  (isSelected: boolean) => <TabButton 
+          selected={isSelected}
+          iconUnselectedColor={"#ccc"}
+          iconHeight={18}
+          iconWidth={20}
+          iconSelectedColor={'#FF00FF'}
+          title={'Home 3'}
+          iconUrl={'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-browse.svg'} 
+        />,
         initial: 'Page3'
       }
     ],
