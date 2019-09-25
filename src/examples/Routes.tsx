@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Image } from 'react-native';
+// import { Image } from 'react-native';
 import Home from './routes/Home';
 import Modal from './routes/Modal';
 import Page2 from './routes/Page2';
@@ -8,19 +8,35 @@ import Page3 from './routes/Page3';
 import TopNav from './components/TopNav';
 import { always } from 'ramda';
 import { createRoutes } from '../index';
+import SvgIcon from '../components/SVGImage';
 
 const Routes = createRoutes({
     tabs: [
       {
-        button: <Image source={{uri: 'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-browse.svg'}} style={{width: 35, height: 30, marginLeft: 18, marginTop: 8}}></Image>,
+        button: <SvgIcon
+          color={"#550000"}
+          height={18}
+          width={20}
+          url={'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-browse.svg'} 
+        />,
         initial: 'Home'
       },
       {
-        button: <Image source={{uri:'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-tickets.svg'}} style={{width: 30, height: 25, marginTop: 8}}/>,
+        button: <SvgIcon
+          color={"#005500"}
+          height={18}
+          width={20}
+          url={'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-tickets.svg'} 
+        />,
         initial: 'Page2'
       },
       {
-        button: <Image source={{uri:'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-account.svg'}} style={{position: 'relative', width: 30, height: 30, marginRight: 18, marginTop: 8}}/>,
+        button: <SvgIcon
+          color={"#000055"}
+          height={18}
+          width={20}
+          url={'https://s3.amazonaws.com/assets.aloompa.com/TestFolder/reservations-tab-icon-account.svg'} 
+          />,
         initial: 'Page3'
       }
     ],
